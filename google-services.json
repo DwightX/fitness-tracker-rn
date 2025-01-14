@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "282207807446",
+    "project_id": "tracker-app-e02e1",
+    "storage_bucket": "tracker-app-e02e1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282207807446:android:48e5d7ba3bb4a813f9e677",
+        "android_client_info": {
+          "package_name": "com.howichill.trackerfitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282207807446-2fb3f79bmtshn3vi5e0cd04m49g6nlt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeR530S5YjJHSwG5ekX3R2EoxjkyNtFxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282207807446-2fb3f79bmtshn3vi5e0cd04m49g6nlt1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "282207807446-e6udtekhjlfvsaarihlcnuoteedcbb5o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.howichill.trackerfitness"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
