@@ -5,7 +5,7 @@ const Page = () => {
      return(
         <View>
             <Text>Hello World</Text>
-            <Button title='Sign Out' onPress={() => auth().signOut()}>Hello World</Button>
+            <Button title='Sign Out' onPress={() => auth().signOut()}></Button>
         </View>
      )
 }
