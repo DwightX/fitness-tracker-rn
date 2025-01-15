@@ -10,33 +10,32 @@ import {
   import { useState } from "react";
   import auth from "@react-native-firebase/auth";
   import { FirebaseError } from "firebase/app";
-  import { Button, ButtonGroup, color } from "@rneui/base";
+  import { Button } from "@rneui/base";
   import AnimatedTextInput from "@big-tam/react-native-animated-text-input";
 
   const lightBlue = "#45A6E5";
   const offWhite = "#e1e1e1";
-
   
   export default function Index() {
-    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const router = useRouter()
   
     const signUp = async () => {
-      router.replace('/signUp')
-    };
-  
-    const signIn = async () => {
       setLoading(true);
       try {
-        await auth().signInWithEmailAndPassword(email, password);
+        await auth().createUserWithEmailAndPassword(email, password);
+        alert("Check your email");
       } catch (e: any) {
         const err = e as FirebaseError;
-        alert("Sign in failed: " + err.message);
+        alert("Registration failed: " + err.message);
       } finally {
         setLoading(false);
       }
+    };
+    const signIn = async () => {
+      router.replace('/')
     };
   
     return (
@@ -46,8 +45,7 @@ import {
         </View>
   
         <KeyboardAvoidingView behavior="padding" style={styles.loginWrapper}>
-          <View style={styles.buttonGroup}>
-          <AnimatedTextInput
+        <AnimatedTextInput
             {...config}
             value={email}
             onChangeText={setEmail}
@@ -61,7 +59,6 @@ import {
             secureTextEntry
             onChangeText={setPassword}
           />
-          
           <View style={styles.signInWrapper}>
             <Button 
             buttonStyle={{
@@ -71,10 +68,9 @@ import {
                 borderRadius: 10,
                 width:300
               }}
-              onPress={signIn} title="Sign In" />
+              onPress={signUp} title="Sign Up" />
           </View>
           {loading && <ActivityIndicator size="small" style={styles.loadingIndicator} />}
-          </View>
         </KeyboardAvoidingView>
   
         {/* Sign Up button at the bottom */}
@@ -87,7 +83,7 @@ import {
                 }}
                 type="clear"
                 titleStyle={{ color: '#e3b23c'}}
-                onPress={signUp} title="Don't have an account? Sign Up" />
+                onPress={signIn} title="Already have an account? Sign In" />
         </View>
       </View>
     );
@@ -132,9 +128,6 @@ import {
       padding: 20,
       alignItems: "center", // Centers the button horizontally
     },
-    buttonGroup:{
-      padding:10
-    }
   });
   
   const config = {
